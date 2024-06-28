@@ -36,6 +36,7 @@ jobs:
           echo test, and deploy your project.
   validate:
     # The type of runner that the job will run on
+    needs: [build]
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -51,6 +52,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
   approval:
+    needs: [validate]
     runs-on: ubuntu-latest
     environment:
       name: manual-approval
@@ -65,6 +67,7 @@ jobs:
       # uses: trstringer/manual-approval@a824dad59ac64ac825ab8725599e483e24aa2815
           
   deploy:
+    needs: [approval]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -72,7 +75,7 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: deployment step
-        run: deployment step $GITHUB_JOB
+        run: echo deployment step $GITHUB_JOB
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
