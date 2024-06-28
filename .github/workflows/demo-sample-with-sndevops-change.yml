@@ -5,10 +5,10 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -67,11 +67,11 @@ jobs:
               uses: ServiceNow/servicenow-devops-change@v4.0.0
               with:
                 # ServiceNow Instance URL
-                instance-url: ${{ vars.SNOW_URL }}
+                instance-url: ${{ github.SNOW_URL }}
                 # Devops Integration Token
-                devops-integration-token: ${{ vars.SNOW_TOOL_TOKEN }}
+                devops-integration-token:  ${{ secrets.SNOW_TOOL_TOKEN }}
                 # Orchestration Tool Id
-                tool-id: ${{ vars.SNOW_TOOL_ID }}
+                tool-id: ${{ github.SNOW_TOOL_ID }}
                 # Display Name of the Job
                 job-name: "approval"
                 # Github Context
