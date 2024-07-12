@@ -32,3 +32,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  approval:
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment:
+      name: manual-approval
