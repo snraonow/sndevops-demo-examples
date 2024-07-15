@@ -72,7 +72,7 @@ jobs:
           # Orchestration Tool Id
           tool-id: ${{ vars.SNOW_TOOL_ID }}
           # Display Name of the Job
-          job-name: "ServiceNow DevOps Change Automation"
+          job-name: "approval"
           # Github Context
           context-github: ${{ toJSON(github) }}
           # The max. time in seconds to wait until the action should fail.
