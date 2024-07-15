@@ -70,7 +70,7 @@ jobs:
           # Orchestration Tool Id
           tool-id: ${{ vars.SNOW_TOOL_ID }}
           # Display Name of the Job
-          job-name: ${{ GITHUB_JOB }}
+          job-name: ${{ env.GITHUB_JOB }}
           # Github Context
           context-github: ${{ toJSON(github) }}
           # The max. time in seconds to wait until the action should fail.
