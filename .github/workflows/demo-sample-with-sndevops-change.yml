@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Print github job name
-        run: echo Job $GITHUB_JOB
+        run: echo "Job $GITHUB_JOB"
 
       # Runs a set of commands using the runners shell
       - name: Print all env variables
@@ -74,7 +74,7 @@ jobs:
           # Orchestration Tool Id
           tool-id: ${{ vars.SNOW_TOOL_ID }}
           # Display Name of the Job
-          # job-name: $GITHUB_JOB
+          job-name: "$GITHUB_JOB"
           # Github Context
           context-github: ${{ toJSON(github) }}
           # The max. time in seconds to wait until the action should fail.
