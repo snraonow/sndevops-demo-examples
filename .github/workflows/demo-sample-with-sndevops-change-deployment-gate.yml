@@ -78,7 +78,7 @@ jobs:
           # The customized inputs to create change with the requested details.
           change-request: '{}'
           # The max. time in seconds to wait until change created.
-          # deployment-gate: '{"environment":"servicenow-approval","jobName":"approval"}'                      
+          deployment-gate: '{"environment":"servicenow-approval","jobName":"deploy"}'                      
           
   deploy:
     needs: [approval]
